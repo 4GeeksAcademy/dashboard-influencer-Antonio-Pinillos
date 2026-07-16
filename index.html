@@ -8,41 +8,78 @@
 		<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer></script>
 		<script src="./script.js" defer></script>
 	</head>
-	<body class="min-h-screen bg-zinc-100 text-zinc-900 antialiased">
-		<div class="min-h-screen lg:flex">
+	<body class="h-screen overflow-hidden bg-zinc-100 text-zinc-900 antialiased">
+		<div class="h-screen lg:flex">
 			<div id="sidebar-backdrop" class="fixed inset-0 z-40 hidden bg-zinc-900/40 lg:hidden"></div>
 
-			<aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-72 -translate-x-full border-r border-zinc-200 bg-white transition-transform duration-300 lg:sticky lg:top-0 lg:h-screen lg:translate-x-0">
+			<aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-20 -translate-x-full border-r border-zinc-200 bg-white transition-all duration-300 lg:w-72 lg:translate-x-0">
 				<div class="flex h-full flex-col">
-					<div class="flex items-center justify-between border-b border-zinc-200 px-4 py-4">
-						<p class="text-sm font-semibold">Navegacion</p>
-						<button id="sidebar-close" type="button" class="rounded-md border border-zinc-200 px-2 py-1 text-xs lg:hidden">Cerrar</button>
+					<div class="flex items-center justify-center border-b border-zinc-200 px-3 py-4 lg:justify-between lg:px-4">
+						<p class="hidden text-sm font-semibold lg:block">Navegacion</p>
+						<button id="sidebar-close" type="button" class="rounded-md border border-zinc-200 p-2 text-zinc-600 lg:hidden" aria-label="Cerrar menu">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+							</svg>
+						</button>
 					</div>
-					<nav class="flex-1 overflow-y-auto px-4 py-4" aria-label="Menu lateral">
+					<nav class="flex-1 overflow-y-auto px-3 py-4 lg:px-4" aria-label="Menu lateral">
 						<ul class="grid gap-2 text-sm">
-							<li><a href="#kpis" class="block rounded-xl bg-zinc-900 px-3 py-2 font-medium text-white">KPIs</a></li>
-							<li><a href="#drivers" class="block rounded-xl px-3 py-2 font-medium text-zinc-700 hover:bg-zinc-100">Drivers</a></li>
-							<li><a href="#detalles" class="block rounded-xl px-3 py-2 font-medium text-zinc-700 hover:bg-zinc-100">Detalles</a></li>
-							<li><a href="#alertas" class="block rounded-xl px-3 py-2 font-medium text-zinc-700 hover:bg-zinc-100">Alertas</a></li>
+							<li>
+								<a href="#kpis" class="flex items-center justify-center gap-3 rounded-xl bg-zinc-900 px-3 py-2 font-medium text-white lg:justify-start">
+									<span class="size-2 rounded-full bg-white"></span>
+									<span class="hidden lg:inline">KPIs</span>
+								</a>
+							</li>
+							<li>
+								<a href="#drivers" class="flex items-center justify-center gap-3 rounded-xl px-3 py-2 font-medium text-zinc-700 hover:bg-zinc-100 lg:justify-start">
+									<span class="size-2 rounded-full bg-zinc-400"></span>
+									<span class="hidden lg:inline">Drivers</span>
+								</a>
+							</li>
+							<li>
+								<a href="#detalles" class="flex items-center justify-center gap-3 rounded-xl px-3 py-2 font-medium text-zinc-700 hover:bg-zinc-100 lg:justify-start">
+									<span class="size-2 rounded-full bg-zinc-400"></span>
+									<span class="hidden lg:inline">Detalles</span>
+								</a>
+							</li>
+							<li>
+								<a href="#alertas" class="flex items-center justify-center gap-3 rounded-xl px-3 py-2 font-medium text-zinc-700 hover:bg-zinc-100 lg:justify-start">
+									<span class="size-2 rounded-full bg-zinc-400"></span>
+									<span class="hidden lg:inline">Alertas</span>
+								</a>
+							</li>
 						</ul>
 					</nav>
+					<div class="border-t border-zinc-200 px-3 py-4 lg:px-4">
+						<div class="flex items-center justify-center gap-3 lg:justify-start">
+							<img src="https://i.pravatar.cc/80?img=12" alt="Avatar de Antonio Pinillos" class="size-10 rounded-full object-cover" />
+							<div class="hidden lg:block">
+								<p class="text-xs text-zinc-500">Cuenta activa</p>
+								<p class="text-sm font-semibold">Antonio Pinillos</p>
+							</div>
+						</div>
+					</div>
 				</div>
 			</aside>
 
-			<div class="flex min-w-0 flex-1 flex-col lg:ml-0">
-				<header class="border-b border-zinc-200 bg-white">
-					<div class="container mx-auto px-4 py-4 sm:px-6 lg:px-8">
+			<div class="flex min-w-0 flex-1 flex-col lg:pl-72">
+				<header class="fixed left-0 right-0 top-0 z-30 border-b border-zinc-200 bg-white/80 backdrop-blur lg:left-72">
+					<div class="container mx-auto px-4 py-3 sm:px-6 lg:px-8">
 						<div class="flex items-center gap-3">
-							<button id="sidebar-toggle" type="button" class="rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm font-medium lg:hidden">Menu</button>
+							<button id="sidebar-toggle" type="button" class="rounded-lg border border-zinc-200 bg-white p-2 text-zinc-700 lg:hidden" aria-label="Abrir menu lateral">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-5">
+									<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+								</svg>
+							</button>
 							<div>
-								<p class="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">Business Intelligence</p>
-								<h1 class="mt-1 text-xl font-bold tracking-tight sm:text-2xl">Dashboard Ejecutivo de Rendimiento</h1>
+								<p class="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">Business Intelligence Suite</p>
+								<h1 class="text-xl font-extrabold tracking-tight sm:text-2xl">Mimori Analytics</h1>
 							</div>
 						</div>
 					</div>
 				</header>
 
-				<main class="container mx-auto flex-1 px-4 py-6 sm:px-6 lg:px-8">
+				<main class="container mx-auto flex-1 overflow-y-auto px-4 pb-6 pt-24 sm:px-6 lg:px-8">
 					<section id="kpis" aria-labelledby="kpis-title" class="grid gap-4">
 						<h2 id="kpis-title" class="text-lg font-semibold sm:text-xl">Bloque Superior: KPIs de Alto Nivel</h2>
 						<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
