@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Dashboard BI - Influencer</title>
+		<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer></script>
+		<script src="./script.js" defer></script>
+	</head>
+	<body class="min-h-screen bg-zinc-100 text-zinc-900 antialiased">
+		<div class="min-h-screen lg:flex">
+			<div id="sidebar-backdrop" class="fixed inset-0 z-40 hidden bg-zinc-900/40 lg:hidden"></div>
+
+			<aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-72 -translate-x-full border-r border-zinc-200 bg-white transition-transform duration-300 lg:sticky lg:top-0 lg:h-screen lg:translate-x-0">
+				<div class="flex h-full flex-col">
+					<div class="flex items-center justify-between border-b border-zinc-200 px-4 py-4">
+						<p class="text-sm font-semibold">Navegacion</p>
+						<button id="sidebar-close" type="button" class="rounded-md border border-zinc-200 px-2 py-1 text-xs lg:hidden">Cerrar</button>
+					</div>
+					<nav class="flex-1 overflow-y-auto px-4 py-4" aria-label="Menu lateral">
+						<ul class="grid gap-2 text-sm">
+							<li><a href="#kpis" class="block rounded-xl bg-zinc-900 px-3 py-2 font-medium text-white">KPIs</a></li>
+							<li><a href="#drivers" class="block rounded-xl px-3 py-2 font-medium text-zinc-700 hover:bg-zinc-100">Drivers</a></li>
+							<li><a href="#detalles" class="block rounded-xl px-3 py-2 font-medium text-zinc-700 hover:bg-zinc-100">Detalles</a></li>
+							<li><a href="#alertas" class="block rounded-xl px-3 py-2 font-medium text-zinc-700 hover:bg-zinc-100">Alertas</a></li>
+						</ul>
+					</nav>
+				</div>
+			</aside>
+
+			<div class="flex min-w-0 flex-1 flex-col lg:ml-0">
+				<header class="border-b border-zinc-200 bg-white">
+					<div class="container mx-auto px-4 py-4 sm:px-6 lg:px-8">
+						<div class="flex items-center gap-3">
+							<button id="sidebar-toggle" type="button" class="rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm font-medium lg:hidden">Menu</button>
+							<div>
+								<p class="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">Business Intelligence</p>
+								<h1 class="mt-1 text-xl font-bold tracking-tight sm:text-2xl">Dashboard Ejecutivo de Rendimiento</h1>
+							</div>
+						</div>
+					</div>
+				</header>
+
+				<main class="container mx-auto flex-1 px-4 py-6 sm:px-6 lg:px-8">
+					<section id="kpis" aria-labelledby="kpis-title" class="grid gap-4">
+						<h2 id="kpis-title" class="text-lg font-semibold sm:text-xl">Bloque Superior: KPIs de Alto Nivel</h2>
+						<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+							<article class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+								<p class="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">Volumen</p>
+								<ul class="mt-3 grid gap-2 text-sm">
+									<li class="flex items-center justify-between"><span class="text-zinc-500">Ventas</span><span id="kpi-ventas" class="font-semibold">-</span></li>
+									<li class="flex items-center justify-between"><span class="text-zinc-500">Usuarios</span><span id="kpi-usuarios" class="font-semibold">-</span></li>
+									<li class="flex items-center justify-between"><span class="text-zinc-500">Impresiones</span><span id="kpi-impresiones" class="font-semibold">-</span></li>
+								</ul>
+							</article>
+							<article class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+								<p class="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">Ingresos</p>
+								<ul class="mt-3 grid gap-2 text-sm">
+									<li class="flex items-center justify-between"><span class="text-zinc-500">Revenue</span><span id="kpi-revenue" class="font-semibold">-</span></li>
+									<li class="flex items-center justify-between"><span class="text-zinc-500">MRR</span><span id="kpi-mrr" class="font-semibold">-</span></li>
+									<li class="flex items-center justify-between"><span class="text-zinc-500">Ticket promedio</span><span id="kpi-ticket" class="font-semibold">-</span></li>
+								</ul>
+							</article>
+							<article class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+								<p class="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">Engagement y Retencion</p>
+								<ul class="mt-3 grid gap-2 text-sm">
+									<li class="flex items-center justify-between"><span class="text-zinc-500">Engagement rate</span><span id="kpi-engagement" class="font-semibold">-</span></li>
+									<li class="flex items-center justify-between"><span class="text-zinc-500">Conversiones</span><span id="kpi-conversiones" class="font-semibold">-</span></li>
+									<li class="flex items-center justify-between"><span class="text-zinc-500">Churn</span><span id="kpi-churn" class="font-semibold">-</span></li>
+								</ul>
+							</article>
+							<article class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+								<p class="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">Eficiencia y Satisfaccion</p>
+								<ul class="mt-3 grid gap-2 text-sm">
+									<li class="flex items-center justify-between"><span class="text-zinc-500">Coste por resultado</span><span id="kpi-cpr" class="font-semibold">-</span></li>
+									<li class="flex items-center justify-between"><span class="text-zinc-500">NPS</span><span id="kpi-nps" class="font-semibold">-</span></li>
+									<li class="flex items-center justify-between"><span class="text-zinc-500">Margen</span><span id="kpi-margen" class="font-semibold">-</span></li>
+								</ul>
+							</article>
+						</div>
+					</section>
+
+					<section id="drivers" aria-labelledby="drivers-title" class="mt-8 grid gap-4">
+						<h2 id="drivers-title" class="text-lg font-semibold sm:text-xl">Bloque Intermedio: Drivers de Rendimiento</h2>
+						<div class="grid grid-cols-1 gap-4 xl:grid-cols-3">
+							<article class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+								<h3 class="text-base font-semibold">Funnel de ventas por etapas</h3>
+								<div class="mt-4 h-56 rounded-xl border border-zinc-200 bg-zinc-100 p-2">
+									<canvas id="chart-funnel" aria-label="Grafico funnel" role="img"></canvas>
+								</div>
+							</article>
+							<article class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+								<h3 class="text-base font-semibold">Comparativa por plataforma y producto</h3>
+								<div class="mt-4 h-56 rounded-xl border border-zinc-200 bg-zinc-100 p-2">
+									<canvas id="chart-plataforma-producto" aria-label="Grafico comparativo" role="img"></canvas>
+								</div>
+							</article>
+							<article class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+								<h3 class="text-base font-semibold">Calidad y actividad de contenido</h3>
+								<div class="mt-4 h-56 rounded-xl border border-zinc-200 bg-zinc-100 p-2">
+									<canvas id="chart-calidad" aria-label="Grafico calidad de contenido" role="img"></canvas>
+								</div>
+							</article>
+						</div>
+					</section>
+
+					<section id="detalles" aria-labelledby="detalles-title" class="mt-8 grid gap-4">
+						<h2 id="detalles-title" class="text-lg font-semibold sm:text-xl">Bloque Inferior: Detalles Operacionales y Alertas</h2>
+						<div class="grid grid-cols-1 gap-4 xl:grid-cols-3">
+							<div class="xl:col-span-2">
+								<article class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+									<div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+										<div class="rounded-xl border border-zinc-200 p-3">
+											<h3 class="text-sm font-semibold">Productos</h3>
+											<div class="mt-2 overflow-x-auto">
+												<table class="min-w-full text-left text-sm">
+													<thead class="text-xs uppercase text-zinc-500">
+														<tr><th class="py-2">Producto</th><th class="py-2">Ingresos</th><th class="py-2">Conv.</th></tr>
+													</thead>
+													<tbody id="table-productos" class="divide-y divide-zinc-200"></tbody>
+												</table>
+											</div>
+										</div>
+										<div class="rounded-xl border border-zinc-200 p-3">
+											<h3 class="text-sm font-semibold">Plataformas</h3>
+											<div class="mt-2 overflow-x-auto">
+												<table class="min-w-full text-left text-sm">
+													<thead class="text-xs uppercase text-zinc-500">
+														<tr><th class="py-2">Canal</th><th class="py-2">ROI</th><th class="py-2">Eng.</th></tr>
+													</thead>
+													<tbody id="table-plataformas" class="divide-y divide-zinc-200"></tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									<div class="mt-4 rounded-xl border border-zinc-200 p-3">
+										<h3 class="text-sm font-semibold">Campanas</h3>
+										<div class="mt-2 overflow-x-auto">
+											<table class="min-w-full text-left text-sm">
+												<thead class="text-xs uppercase text-zinc-500">
+													<tr><th class="py-2">Campana</th><th class="py-2">Presupuesto</th><th class="py-2">Conv.</th><th class="py-2">Estado</th></tr>
+												</thead>
+												<tbody id="table-campanas" class="divide-y divide-zinc-200"></tbody>
+											</table>
+										</div>
+									</div>
+								</article>
+							</div>
+
+							<aside id="alertas" class="grid gap-4">
+								<article class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+									<h3 class="text-base font-semibold">Panel de alertas</h3>
+									<ul id="alerts-list" class="mt-3 grid gap-2 text-sm"></ul>
+								</article>
+								<article class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+									<h3 class="text-base font-semibold">Oportunidades de mejora</h3>
+									<ul id="opportunities-list" class="mt-3 list-disc space-y-2 pl-5 text-sm text-zinc-700"></ul>
+								</article>
+							</aside>
+						</div>
+					</section>
+				</main>
+
+				<footer class="border-t border-zinc-200 bg-white">
+					<div class="container mx-auto flex flex-col gap-1 px-4 py-4 text-xs text-zinc-500 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+						<p>Dashboard BI para Influencer</p>
+						<p>Actualizacion: ultimos 30 dias</p>
+					</div>
+				</footer>
+			</div>
+		</div>
+	</body>
+</html>
