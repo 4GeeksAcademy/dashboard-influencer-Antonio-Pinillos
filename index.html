@@ -26,25 +26,40 @@
 						<ul class="grid gap-2 text-sm">
 							<li>
 								<a href="#kpis" class="flex items-center justify-center gap-3 rounded-xl bg-zinc-900 px-3 py-2 font-medium text-white lg:justify-start">
-									<span class="size-2 rounded-full bg-white"></span>
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4 shrink-0" aria-hidden="true">
+										<path stroke-linecap="round" stroke-linejoin="round" d="M3 13l9-9 9 9" />
+										<path stroke-linecap="round" stroke-linejoin="round" d="M5 11v9h14v-9" />
+									</svg>
 									<span class="hidden lg:inline">KPIs</span>
 								</a>
 							</li>
 							<li>
 								<a href="#drivers" class="flex items-center justify-center gap-3 rounded-xl px-3 py-2 font-medium text-zinc-700 hover:bg-zinc-100 lg:justify-start">
-									<span class="size-2 rounded-full bg-zinc-400"></span>
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4 shrink-0 text-zinc-500" aria-hidden="true">
+										<path stroke-linecap="round" stroke-linejoin="round" d="M4 19h16" />
+										<path stroke-linecap="round" stroke-linejoin="round" d="M7 16V9" />
+										<path stroke-linecap="round" stroke-linejoin="round" d="M12 16V5" />
+										<path stroke-linecap="round" stroke-linejoin="round" d="M17 16v-3" />
+									</svg>
 									<span class="hidden lg:inline">Drivers</span>
 								</a>
 							</li>
 							<li>
 								<a href="#detalles" class="flex items-center justify-center gap-3 rounded-xl px-3 py-2 font-medium text-zinc-700 hover:bg-zinc-100 lg:justify-start">
-									<span class="size-2 rounded-full bg-zinc-400"></span>
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4 shrink-0 text-zinc-500" aria-hidden="true">
+										<rect x="4" y="5" width="16" height="14" rx="2" />
+										<path stroke-linecap="round" stroke-linejoin="round" d="M8 9h8M8 13h8M8 17h5" />
+									</svg>
 									<span class="hidden lg:inline">Detalles</span>
 								</a>
 							</li>
 							<li>
 								<a href="#alertas" class="flex items-center justify-center gap-3 rounded-xl px-3 py-2 font-medium text-zinc-700 hover:bg-zinc-100 lg:justify-start">
-									<span class="size-2 rounded-full bg-zinc-400"></span>
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4 shrink-0 text-zinc-500" aria-hidden="true">
+										<path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4" />
+										<path stroke-linecap="round" stroke-linejoin="round" d="M12 17h.01" />
+										<path stroke-linecap="round" stroke-linejoin="round" d="M10.29 3.86l-8 14A1 1 0 003.16 19h17.68a1 1 0 00.87-1.5l-8-14a1 1 0 00-1.74 0z" />
+									</svg>
 									<span class="hidden lg:inline">Alertas</span>
 								</a>
 							</li>
@@ -63,8 +78,8 @@
 			</aside>
 
 			<div class="flex min-w-0 flex-1 flex-col lg:pl-72">
-				<header class="fixed left-0 right-0 top-0 z-30 border-b border-zinc-200 bg-white/80 backdrop-blur lg:left-72">
-					<div class="container mx-auto px-4 py-3 sm:px-6 lg:px-8">
+				<header class="fixed left-0 right-0 top-0 z-50 h-16 border-b border-zinc-200 bg-white/80 backdrop-blur sm:h-20 lg:left-72">
+					<div class="container mx-auto flex h-full items-center px-4 sm:px-6 lg:px-8">
 						<div class="flex items-center gap-3">
 							<button id="sidebar-toggle" type="button" class="rounded-lg border border-zinc-200 bg-white p-2 text-zinc-700 lg:hidden" aria-label="Abrir menu lateral">
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-5">
@@ -72,19 +87,19 @@
 								</svg>
 							</button>
 							<div>
-								<p class="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">Business Intelligence Suite</p>
-								<h1 class="text-xl font-extrabold tracking-tight sm:text-2xl">Mimori Analytics</h1>
+								<p class="hidden text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500 sm:block">Business Intelligence Suite</p>
+								<h1 class="text-lg font-extrabold tracking-tight sm:text-2xl">Mimori Analytics</h1>
 							</div>
 						</div>
 					</div>
 				</header>
 
-				<main class="container mx-auto flex-1 overflow-y-auto px-4 pb-6 pt-24 sm:px-6 lg:px-8">
+				<main class="container mx-auto flex-1 overflow-y-auto px-4 pb-6 pt-16 sm:px-6 sm:pt-20 lg:px-8">
 					<section id="kpis" aria-labelledby="kpis-title" class="grid gap-4">
-						<h2 id="kpis-title" class="text-lg font-semibold sm:text-xl">Bloque Superior: KPIs de Alto Nivel</h2>
+						<h2 id="kpis-title" class="text-lg font-semibold sm:text-xl">KPIs de Alto Nivel</h2>
 						<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
 							<article class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
-								<p class="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">Volumen</p>
+								<p class="text-sm font-black font-serif uppercase tracking-[0.16em] text-zinc-700">Volumen</p>
 								<ul class="mt-3 grid gap-2 text-sm">
 									<li class="flex items-center justify-between"><span class="text-zinc-500">Ventas</span><span id="kpi-ventas" class="font-semibold">-</span></li>
 									<li class="flex items-center justify-between"><span class="text-zinc-500">Usuarios</span><span id="kpi-usuarios" class="font-semibold">-</span></li>
@@ -92,7 +107,7 @@
 								</ul>
 							</article>
 							<article class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
-								<p class="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">Ingresos</p>
+								<p class="text-sm font-black font-serif uppercase tracking-[0.16em] text-zinc-700">Ingresos</p>
 								<ul class="mt-3 grid gap-2 text-sm">
 									<li class="flex items-center justify-between"><span class="text-zinc-500">Revenue</span><span id="kpi-revenue" class="font-semibold">-</span></li>
 									<li class="flex items-center justify-between"><span class="text-zinc-500">MRR</span><span id="kpi-mrr" class="font-semibold">-</span></li>
@@ -100,7 +115,7 @@
 								</ul>
 							</article>
 							<article class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
-								<p class="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">Engagement y Retencion</p>
+								<p class="text-sm font-black font-serif uppercase tracking-[0.16em] text-zinc-700">Engagement y Retencion</p>
 								<ul class="mt-3 grid gap-2 text-sm">
 									<li class="flex items-center justify-between"><span class="text-zinc-500">Engagement rate</span><span id="kpi-engagement" class="font-semibold">-</span></li>
 									<li class="flex items-center justify-between"><span class="text-zinc-500">Conversiones</span><span id="kpi-conversiones" class="font-semibold">-</span></li>
@@ -108,7 +123,7 @@
 								</ul>
 							</article>
 							<article class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
-								<p class="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">Eficiencia y Satisfaccion</p>
+								<p class="text-sm font-black font-serif uppercase tracking-[0.16em] text-zinc-700">Eficiencia y Satisfaccion</p>
 								<ul class="mt-3 grid gap-2 text-sm">
 									<li class="flex items-center justify-between"><span class="text-zinc-500">Coste por resultado</span><span id="kpi-cpr" class="font-semibold">-</span></li>
 									<li class="flex items-center justify-between"><span class="text-zinc-500">NPS</span><span id="kpi-nps" class="font-semibold">-</span></li>
@@ -119,7 +134,7 @@
 					</section>
 
 					<section id="drivers" aria-labelledby="drivers-title" class="mt-8 grid gap-4">
-						<h2 id="drivers-title" class="text-lg font-semibold sm:text-xl">Bloque Intermedio: Drivers de Rendimiento</h2>
+						<h2 id="drivers-title" class="text-lg font-semibold sm:text-xl">Drivers de Rendimiento</h2>
 						<div class="grid grid-cols-1 gap-4 xl:grid-cols-3">
 							<article class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
 								<h3 class="text-base font-semibold">Funnel de ventas por etapas</h3>
@@ -143,7 +158,7 @@
 					</section>
 
 					<section id="detalles" aria-labelledby="detalles-title" class="mt-8 grid gap-4">
-						<h2 id="detalles-title" class="text-lg font-semibold sm:text-xl">Bloque Inferior: Detalles Operacionales y Alertas</h2>
+						<h2 id="detalles-title" class="text-lg font-semibold sm:text-xl">Detalles Operacionales y Alertas</h2>
 						<div class="grid grid-cols-1 gap-4 xl:grid-cols-3">
 							<div class="xl:col-span-2">
 								<article class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">

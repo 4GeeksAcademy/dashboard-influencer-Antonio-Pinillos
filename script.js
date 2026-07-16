@@ -1,4 +1,4 @@
-fconst dashboardData = {
+const dashboardData = {
 	kpis: {
 		volumen: { ventas: 1248, usuarios: 82400, impresiones: 1900000 },
 		ingresos: { revenue: 32640, mrr: 14280, ticketPromedio: 51.2 },
